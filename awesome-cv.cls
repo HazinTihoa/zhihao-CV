@@ -75,6 +75,7 @@
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
+\RequirePackage{fontspec}
 \RequirePackage{fontawesome5}
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
@@ -163,11 +164,20 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
+% \newcommand*{\headerfont}{\roboto}
+% \newcommand*{\headerfontlight}{\robotolight}
+% \newcommand*{\footerfont}{\sourcesanspro}
+% \newcommand*{\bodyfont}{\sourcesanspro}
+% \newcommand*{\bodyfontlight}{\sourcesansprolight}
 \newcommand*{\headerfont}{\roboto}
 \newcommand*{\headerfontlight}{\robotolight}
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
+% \newcommand*{\bodyfontlight}{\sourcesansprolight}
+\newcommand*{\bodyfontlight}{\sourcesanspro}
+
+
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
@@ -175,7 +185,7 @@
 % Configure styles for each CV elements
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
@@ -185,12 +195,12 @@
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
-% For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+% For elements of entry tzh
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{14pt}{1.5em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1.5em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1.5em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1.5em}\bodyfontlight\slshape\color{black} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{12pt}{1.5em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
@@ -200,14 +210,14 @@
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
-\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\honortitlestyle}[1]{{\fontsize{12pt}{1.5em}\bodyfont\color{graytext} #1}}
+\newcommand*{\honorpositionstyle}[1]{{\fontsize{12pt}{1.5em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\honordatestyle}[1]{{\fontsize{12pt}{1.5em}\bodyfont\color{graytext} #1}}
+\newcommand*{\honorlocationstyle}[1]{{\fontsize{12pt}{1.5em}\bodyfontlight\slshape\color{black} #1}}
 
 % For elements of skill
-\newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skilltypestyle}[1]{{\fontsize{12pt}{1.5em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{12pt}{1.5em}\bodyfontlight\color{text} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -800,4 +810,13 @@
       \\\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
+}
+
+\newcommand*{\cvpub}[1]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
+    \multicolumn{1}{L{\textwidth}}{\descriptionstyle{\textbf{•}\hspace{0.3em}#1}} \\
+  \end{tabular*}%
 }
